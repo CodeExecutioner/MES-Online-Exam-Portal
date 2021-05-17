@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+<div class="page-body">
+            <div class="container-fluid">
+              <div class="page-header">
+                <div class="row">
+                  <div class="col-lg-6 main-header">
+                    <h2>student<span>Details</span></h2>
+                    <h6 class="mb-0">admin panel</h6>
+                  </div>
+                  <div class="col-lg-6 breadcrumb-right">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.html"><i class="pe-7s-home"></i></a></li>
+                      <li class="breadcrumb-item">Forms   </li>
+                      <li class="breadcrumb-item">Form Controls</li>
+                      <li class="breadcrumb-item active">Add</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    <table class="display dataTable table" id="advance-1" role="grid" aria-describedby="advance-1_info">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Sr.No</th>
+      <th scope="col">Student Name</th>
+         <th scope="col">Contact</th>
+         <th scope="col">Email</th>
+        <th scope="col">Parent</th>
+        <th scope="col">parent contact</th>
+        <th scope="col">class</th>
+        <th scope="col">Address</th>
+        <th scope="col">username</th>
+         <th scope="col">department</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for row in studentlist %}
+        <tr>
+      <td >{{row.0}}</td>
+
+      <td>{{row.1}}</td>
+             <td>{{row.2}}</td>
+             <td>{{row.3}}</td>
+             <td>{{row.4}}</td>
+             <td>{{row.5}}</td>
+             <td>{{row.6}}</td>
+             <td>{{row.7}}</td>
+             <td>{{row.9}}</td>
+             <td>{{row.14}}</td>
+             </tr>
+        {% endfor %}
+  </tbody>
+    </table>
+</div>
+
+ {% endblock content %}
+
+
+

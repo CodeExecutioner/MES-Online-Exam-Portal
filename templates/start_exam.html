@@ -1,0 +1,60 @@
+{% extends "layout_student.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+
+        <!-- Right sidebar Ends-->
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-header">
+              <div class="row">
+                <div class="col-lg-6 main-header">
+                  <h2>MES<span>Dashboard </span></h2>
+                  <h6 class="mb-0">Student's panel</h6>
+                </div>
+                <div class="col-lg-6 breadcrumb-right">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('admindashboard') }}"><i class="pe-7s-home"></i></a></li>
+                    <li class="breadcrumb-item">Dashboard</li>
+                    <li class="breadcrumb-item active">Admin  </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Container-fluid starts-->
+
+            {% for row in context.allexams %}
+            <div class="col-md-5" style="border:2px solid black; padding:20px 20px 20px 20px; radius:10%" >
+                <label>Exam Name: &nbsp; {{row.1}}</label><br>
+                <div class="" style="
+                    display: inline-block;
+                    float: right;
+                "><label>Time Left : {{context.today }}</label></div>
+                <input type="hidden" name="qpcode" value="{{row.10}}">
+                <label >QP code: &nbsp; {{row.10}}</label><br>
+                <label>Class: &nbsp; {{row.3}}</label><br>
+                <label>Department: &nbsp; {{row.4}}</label><br>
+                {% if context.condition == 1 %}
+                <center><a class="btn btn-primary" data-toggle="Exam is Enabled" data-placement="bottom" title="Exam is Enabled" target="_blank" href="/questionpaper/{{row.10}}">Start Exam</a></center>
+                {% else %}
+
+                <center><button class="btn btn-primary" data-toggle="tooltip type="button" data-toggle="Exam is disabled" data-placement="bottom" title="Exam is disabled">Start Exam</button></center>
+
+                {% endif %}
+
+
+            </div>
+            {% endfor %}
+
+ {% endblock content %}
+
+
+

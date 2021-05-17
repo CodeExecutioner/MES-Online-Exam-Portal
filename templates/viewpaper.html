@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question Paper</title>
+
+      <link rel="stylesheet" type="text/css" href ="{{url_for('static', filename='assets/css/bootstrap.css')}}">
+
+    <script src="{{url_for('static', filename='assets/js/bootstrap/bootstrap.js')}}"></script>
+
+        <script src="{{url_for('static', filename='assets/js/jquery-3.5.1.min.js')}}"></script>
+    <style>
+        body{
+        background:#bdc3c7;
+        margin: 0px auto;
+        }
+        .center{
+        text-align:center
+        }
+        .paper-body{
+        background: #ffffff;
+        }
+        .header{
+        border-bottom:2px solid #2c2c2c;
+        }
+        table tbody{
+        width:100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="paper-body">
+
+            <div class="header">
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Subject Name: English</h5>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="page-body">
+
+            {% for row in alldata %}
+
+                <br>
+                <div class="row">
+                        <div class="col-md-2 center">
+                        <label>Q{{ loop.index }}</label>
+                    </div>
+                    <div class="col-md-6 ">
+                        <label>{{row.0}}</label>
+                    </div>
+                    <div class="col-md-4 center">
+                        <label>{{row.5}}M</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                        <div class="col-md-2 center">
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="radio" class=" " value="a">A) {{row.1}}
+                            </div>
+                                                        <div class="col-md-4">
+                                <input type="radio" class="" value="b">B) {{row.2}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="radio" class=" " value="a">C) {{row.3}}
+                            </div>
+                                                        <div class="col-md-4">
+                                <input type="radio" class="" value="b">D) {{row.4}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 center">
+                    </div>
+                </div>
+                <hr>
+
+            {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

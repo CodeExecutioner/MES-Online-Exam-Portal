@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+<div class="page-body">
+            <div class="container-fluid">
+              <div class="page-header">
+                <div class="row">
+                  <div class="col-lg-6 main-header">
+                    <h2>Subject<span>Details</span></h2>
+                    <h6 class="mb-0">admin panel</h6>
+                  </div>
+                  <div class="col-lg-6 breadcrumb-right">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.html"><i class="pe-7s-home"></i></a></li>
+                      <li class="breadcrumb-item active">Add Class</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+<div class="card-body">
+                      <form class="needs-validation" action="/class" method="post">
+                        <div class="form-row">
+                          <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Class Name</label>
+                            <input class="form-control" id="validationCustom01" type="text" name="name" placeholder="Enter Class Name" required=""> <br>
+                               <label for="validationCustom01">Stream Name</label>
+                           <select name="stream" class="form-control">
+                               <option selected disabled>Select Stream</option>
+                                  {% for str in stream %}
+                                    <option value="{{str.1}}">{{str.1}}</option>
+                                    {% endfor %}
+                           </select>
+                            <br>
+                                 <label for="validationCustom01">Teacher Name</label>
+                           <select name="teacher" class="form-control">
+                               <option selected disabled>Select Teacher</option>
+                                  {% for tch in teacher %}
+                                    <option value="{{tch.1}}">{{tch.1}}</option>
+                                    {% endfor %}
+                           </select>
+                            <br>
+                            <div class="valid-feedback">Looks good!</div>
+                              <button class="btn btn-primary" type="submit">Submit</button>
+                        <br>
+                          </div>
+                        </div>
+                      </form>
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Sr.No</th>
+      <th scope="col">Class Name</th>
+      <th scope="col">Class Stream</th>
+      <th scope="col">Class Teacher</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for row in classlist %}
+        <tr>
+      <td >{{loop.index}}</td>
+
+      <td>{{row.1}}</td>
+      <td>{{row.3}}</td>
+      <td>{{row.2}}</td>
+             </tr>
+        {% endfor %}
+
+
+
+  </tbody>
+</table>
+
+
+
+
+   {% endblock content %}

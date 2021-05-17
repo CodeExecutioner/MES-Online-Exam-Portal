@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+<!-- Right sidebar Ends-->
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-header">
+              <div class="row">
+                <div class="col-lg-6 main-header">
+                  <h2>Add<span>Exam </span></h2>
+                  <h6 class="mb-0">admin panel</h6>
+                </div>
+                <div class="col-lg-6 breadcrumb-right">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('admindashboard') }}"><i class="pe-7s-home"></i></a></li>
+                    <li class="breadcrumb-item">Dashboard</li>
+                    <li class="breadcrumb-item active">Admin  </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+  <div class="card-body">
+                      <form class="needs-validation" novalidate=""  method="post">
+
+                        <div class="col-md-12">
+                            <div class="form-group row">
+
+                            <div class="col-md-4">
+                                <label>Question Paper Code</label>
+                             <select class="custom select form-control" required="" name="qplist">
+                                      <option value="not selected" >Select QpCode</option>
+                                       {% for o in data %}
+                                    <option value="{{ o.0 }}">{{ o.0 }}</option>
+                                        {% endfor %}
+
+                                </select>
+                                  </div>
+
+                                   <div class="col-md-4">
+                                    <label>Class</label>
+                                 <select class="custom select form-control" required="" name="class_type">
+                                      <option disabled selected>Class Type</option>
+                                     {% for clrow in clsdata %}
+                                      <option value="{{clrow.1}}">{{clrow.1}}</option>
+                                     {% endfor %}
+                                </select>
+
+                                  </div>
+                                  <div class="col-md-4">
+                                    <label>select Date</label>
+                                    <input type="date" name="date" class="form-control" placeholder="Select a Date...">
+                                </div>
+
+                        </div>
+                             <div class="form-group row">
+
+
+
+                                    <div class="col-md-4">
+                                  <label >Exam Name</label>
+                            <input class="form-control " id="examnm" type="text" name="examname" placeholder="Exam Name" required="">
+                                  </div>
+
+
+
+                                      <div class="col-md-4">
+                                    <label>Exam Description</label>
+                                    <input type="text" name="exam_descriptn" class="form-control" placeholder="Exam Description...">
+
+                                </div>  <div class="col-md-4">
+                                    <label>Subject</label>
+                                   <select class="custom select form-control" required="" name="subject">
+                                      <option disabled selected>Select</option>
+                                     {% for srow in subj %}
+                                      <option value="{{srow.1}}">{{srow.1}}</option>
+                                     {% endfor %}
+                                </select>
+
+                                </div>
+
+                            </div>
+                                  </div>
+
+
+                          <div class="form-group row">
+                              <div class="col-md-4">
+                                  <label>Start Time</label>
+                                    <input type="Time" value="00:00:00" name="start_tim" class="form-control" placeholder="Select a start time...">
+                              </div>
+
+                                <div class="col-md-4">
+                                  <label>End Time</label>
+                                    <input type="Time" value="00:00:00" name="end_tim" class="form-control" placeholder="Select a end time...">
+                              </div>
+                              <div class="col-md-4">
+                                  <label>Departmment Name</label>
+                                  <select class="custom select form-control" required="" name="dept">
+                                      <option disabled selected>Enter Department</option>
+                                     {% for dpt in dept %}
+                                      <option value="{{dpt.1}}">{{dpt.1}}</option>
+                                     {% endfor %}
+                                </select>
+                              </div>
+
+                          </div>
+                          <button class="btn btn-success" formmethod="post" formaction="/addexam1">Publish</button>
+
+                      </form>
+                    </div>
+        </div>
+
+   {% endblock content %}

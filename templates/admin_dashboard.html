@@ -1,0 +1,458 @@
+{% extends "layout.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+  <style>
+    .cursor{
+    cursor:pointer;
+    }
+  </style>
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+        <!-- Page Sidebar Ends-->
+        <!-- Right sidebar Start-->
+
+        <!-- Right sidebar Ends-->
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-header">
+              <div class="row">
+                <div class="col-lg-6 main-header">
+                  <h2>MES<span>Dashboard </span></h2>
+                  <h6 class="mb-0">admin panel</h6>
+                </div>
+                <div class="col-lg-6 breadcrumb-right">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('admindashboard') }}"><i class="pe-7s-home"></i></a></li>
+                    <li class="breadcrumb-item">Dashboard</li>
+                    <li class="breadcrumb-item active">Admin  </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Container-fluid starts-->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12 xl-100">
+                <div class="row">
+                  <div class="col-xl-3 xl-50 col-md-6 cursor box-col-6"  onclick="window.location.href='/streamlist'">
+                    <div class="card gradient-primary o-hidden">
+                      <div class="card-body tag-card">
+                        <div class="default-chart">
+                          <div class="apex-widgets">
+                            <div id="area-widget-chart">
+                              <h4 class="pull-right">{{msg[0][0]}} </h4>
+                            </div>
+                          </div>
+                          <div class="widgets-bottom">
+                            <h5 class="f-w-700 mb-0">
+                             <h4>Departments</h4></h5>
+                          </div>
+                        </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small"></span></span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 xl-50 col-md-6 box-col-6 cursor" onclick=" window.location.href='/teacherList'" >
+                    <div class="card gradient-secondary o-hidden">
+                      <div class="card-body tag-card">
+                        <div class="default-chart">
+                          <div class="apex-widgets">
+                            <div id="area-widget-chart-2">
+                              <h4 class="pull-right">{{msg1[0][0]}}  </h4>
+                            </div>
+                          </div>
+                          <div class="widgets-bottom" >
+                            <h5 class="f-w-700 mb-0">Total Teachers</h5>
+                          </div>
+                        </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small"></span></span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 xl-50 col-md-6 cursor box-col-6">
+                    <div class="card gradient-warning o-hidden">
+                      <div class="card-body tag-card">
+                        <div class="default-chart">
+                          <div class="apex-widgets">
+                            <div id="area-widget-chart-3">
+                              <h4 class="pull-right"> 70  </h4>
+                            </div>
+                          </div>
+                          <div class="widgets-bottom">
+                            <h5 class="f-w-700 mb-0">Total class</h5>
+                          </div>
+                        </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small">     </span></span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 xl-50 col-md-6 cursor box-col-6">
+                    <div class="card gradient-info o-hidden">
+                      <div class="card-body tag-card">
+                        <div class="default-chart">
+                          <div class="apex-widgets">
+                            <div id="area-widget-chart-4">
+                              <h4 class="pull-right">70</h4>
+                            </div>
+                          </div>
+                          <div class="widgets-bottom">
+                            <h5 class="f-w-700 mb-0">Total Exams</h5>
+                          </div>
+                        </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small">     </span></span></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-8 xl-100 box-col-12">
+                <div class="card year-overview">
+                  <div class="card-header no-border d-flex">
+                    <h5>No Of students getting backlog</h5>
+                    <ul class="creative-dots">
+                      <li class="bg-primary big-dot"></li>
+                      <li class="bg-secondary semi-big-dot"></li>
+                      <li class="bg-warning medium-dot"></li>
+                      <li class="bg-info semi-medium-dot"></li>
+                      <li class="bg-secondary semi-small-dot"></li>
+                      <li class="bg-primary small-dot"></li>
+                    </ul>
+
+                  </div>
+                  <div class="card-body row">
+                    <div class="col-6 p-0 ct-10 default-chartist-container"></div>
+                    <div class="col-6 p-0 ct-11 default-chartist-container"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 xl-100 box-col-12">
+                <div class="card">
+                  <div class="card-header no-border">
+                    <h5>Quotes "Every day is new day."</h5>
+                    <ul class="creative-dots">
+                      <li class="bg-primary big-dot"></li>
+                      <li class="bg-secondary semi-big-dot"></li>
+                      <li class="bg-warning medium-dot"></li>
+                      <li class="bg-info semi-medium-dot"></li>
+                      <li class="bg-secondary semi-small-dot"></li>
+                      <li class="bg-primary small-dot"></li>
+                    </ul>
+                    <div class="card-header-right">
+                      <ul class="list-unstyled card-option">
+                        <li><i class="icofont icofont-gear fa fa-spin font-primary"></i></li>
+                        <li><i class="view-html fa fa-code font-primary"></i></li>
+                        <li><i class="icofont icofont-maximize full-card font-primary"></i></li>
+                        <li><i class="icofont icofont-minus minimize-card font-primary"></i></li>
+                        <li><i class="icofont icofont-refresh reload-card font-primary"></i></li>
+                        <li><i class="icofont icofont-error close-card font-primary"></i></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card-body p-0">
+                    <div class="radial-default">
+                      <div id="circlechart"></div>
+                    </div>
+                    <div class="code-box-copy">
+                      <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head1" title="Copy"><i class="icofont icofont-copy-alt"></i></button>
+                      <pre><code class="language-html" id="example-head1">&lt;!-- Cod Box Copy begin --&gt;
+
+&lt;!-- Cod Box Copy end --&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 xl-50 box-col-12">
+                <div class="card gradient-secondary o-hidden monthly-overview">
+                  <div class="card-header no-border bg-transparent">
+                    <h5>Backlog Results</h5>
+                    <h6 class="mb-0">January</h6><span class="pull-right right-badge"><span class="badge badge-pill">70 / 100</span></span>
+                  </div>
+                  <div class="card-body p-0">
+                    <div class="text-bg"><span>0.7</span></div>
+                    <div class="area-range-apex">
+                      <div id="area-range"></div>
+                    </div><span class="overview-dots full-lg-dots"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small"></span></span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-4 xl-100 box-col-6">
+                <div class="card gradient-primary o-hidden monthly-overview yearly">
+                  <div class="card-header no-border bg-transparent">
+                    <h5>Ranking students</h5>
+                    <h6 class="mb-0">Monday</h6><span class="pull-right right-badge"><span class="badge badge-pill">50 / 100</span></span>
+                  </div>
+                  <div class="card-body p-0">
+                    <div class="text-bg"><span>0.5</span></div>
+                    <div class="area-range-apex">
+                      <div id="area-range-1"></div>
+                    </div><span class="overview-dots full-width-dots"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small"> </span></span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 xl-100 box-col-12">
+                <div class="card weather-bg">
+                  <div class="card-header no-border bg-transparent">
+                    <h5>Students Feedback</h5>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-xl-6 xl-100 box-col-12">
+                <div class="card">
+                  <div class="card-header no-border">
+                    <h5>Important Activities</h5>
+                    <ul class="creative-dots">
+                      <li class="bg-primary big-dot"></li>
+                      <li class="bg-secondary semi-big-dot"></li>
+                      <li class="bg-warning medium-dot"></li>
+                      <li class="bg-info semi-medium-dot"></li>
+                      <li class="bg-secondary semi-small-dot"></li>
+                      <li class="bg-primary small-dot"></li>
+                    </ul>
+                    <div class="card-header-right">
+                      <ul class="list-unstyled card-option">
+                        <li><i class="icofont icofont-gear fa fa-spin font-primary"></i></li>
+                        <li><i class="view-html fa fa-code font-primary"></i></li>
+                        <li><i class="icofont icofont-maximize full-card font-primary"></i></li>
+                        <li><i class="icofont icofont-minus minimize-card font-primary"></i></li>
+                        <li><i class="icofont icofont-refresh reload-card font-primary"></i></li>
+                        <li><i class="icofont icofont-error close-card font-primary"></i></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="activity-table table-responsive">
+                      <table class="table table-bordernone">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="activity-image"><img class="img-fluid" src="{{url_for('static', filename='assets/images/dashboard/clipboard.png')}}" alt=""></div>
+                            </td>
+                            <td>
+                              <div class="activity-details">
+                                <h4 class="default-text">15 <span class="f-14">November</span></h4>
+                                <h6>New Task Added</h6>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="activity-time"><span class="font-primary f-w-700">1 Day Ago</span><span class="d-block light-text">Your Work Deadline 18<sup>th</sup></span></div>
+                            </td>
+                            <td>
+                              <button class="btn btn-shadow-primary">View</button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="activity-image activity-secondary"><img class="img-fluid" src="{{url_for('static', filename='assets/images/dashboard/greeting.png')}}" alt=""></div>
+                            </td>
+                            <td>
+                              <div class="activity-details">
+                                <h4 class="default-text">01 <span class="f-14">January</span></h4>
+                                <h6>New Task Added</h6>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="activity-time"><span class="font-secondary f-w-700">10 Minute Ago</span><span class="d-block light-text">Update Your Work Today</span></div>
+                            </td>
+                            <td>
+                              <button class="btn btn-shadow-secondary">View</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="code-box-copy">
+                      <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head3" title="Copy"><i class="icofont icofont-copy-alt"></i></button>
+                      <pre><code class="language-html" id="example-head3">
+&nbsp;
+  </code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-8 xl-100 box-col-12">
+                <div class="card">
+                  <div class="card-header no-border">
+                    <h5>Instant Teachers</h5>
+                    <ul class="creative-dots">
+                      <li class="bg-primary big-dot"></li>
+                      <li class="bg-secondary semi-big-dot"></li>
+                      <li class="bg-warning medium-dot"></li>
+                      <li class="bg-info semi-medium-dot"></li>
+                      <li class="bg-secondary semi-small-dot"></li>
+                      <li class="bg-primary small-dot"></li>
+                    </ul>
+                    <div class="card-header-right">
+                      <ul class="list-unstyled card-option">
+                        <li><i class="icofont icofont-gear fa fa-spin font-primary"></i></li>
+                        <li><i class="view-html fa fa-code font-primary"></i></li>
+                        <li><i class="icofont icofont-maximize full-card font-primary"></i></li>
+                        <li><i class="icofont icofont-minus minimize-card font-primary"></i></li>
+                        <li><i class="icofont icofont-refresh reload-card font-primary"></i></li>
+                        <li><i class="icofont icofont-error close-card font-primary"></i></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="activity-table table-responsive recent-table">
+                      <table class="table table-bordernone">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="recent-images"><img class="img-fluid" src="{{url_for('static', filename='assets/images/dashboard/recent-user-1.png')}}" alt=""></div>
+                            </td>
+                            <td>
+                              <h5 class="default-text mb-0 f-w-700 f-18">Nick Stone</h5>
+                            </td>
+                            <td><span class="badge badge-pill recent-badge f-12">New York</span></td>
+                            <td class="f-w-700">458-4594-5451</td>
+                            <td>
+                              <h6 class="mb-0">15 Jan</h6>
+                            </td>
+                            <td><span class="badge badge-pill recent-badge"><i data-feather="more-horizontal"></i></span></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="recent-images-primary"><img class="img-fluid" src="{{url_for('static', filename='assets/images/dashboard/recent-user-2.png')}}" alt=""></div>
+                            </td>
+                            <td>
+                              <h5 class="font-primary mb-0 f-w-700 f-18">Milano Esco</h5>
+                            </td>
+                            <td><span class="badge badge-pill recent-badge f-12">Brazil</span></td>
+                            <td class="f-w-700">812-4896-9812</td>
+                            <td>
+                              <h6 class="mb-0">06 Feb</h6>
+                            </td>
+                            <td><span class="badge badge-pill recent-badge"><i data-feather="more-horizontal"></i></span></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="recent-images-secondary"><img class="img-fluid" src="{{url_for('static', filename='assets/images/dashboard/recent-user-3.png')}}" alt=""></div>
+                            </td>
+                            <td>
+                              <h5 class="font-secondary mb-0 f-w-700 f-18">Charlie Pol</h5>
+                            </td>
+                            <td><span class="badge badge-pill recent-badge f-12">London</span></td>
+                            <td class="f-w-700">215-0324-6541</td>
+                            <td>
+                              <h6 class="mb-0">22 Feb</h6>
+                            </td>
+                            <td><span class="badge badge-pill recent-badge"><i data-feather="more-horizontal"></i></span></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="recent-images-warning"><img class="img-fluid" src="{{url_for('static', filename='assets/images/dashboard/recent-user-4.png')}}" alt=""></div>
+                            </td>
+                            <td>
+                              <h5 class="font-warning mb-0 f-w-700 f-18">Jordi Esol</h5>
+                            </td>
+                            <td><span class="badge badge-pill recent-badge f-12">U.S.A</span></td>
+                            <td class="f-w-700">748-0012-3487</td>
+                            <td>
+                              <h6 class="mb-0">18 Mar</h6>
+                            </td>
+                            <td><span class="badge badge-pill recent-badge"><i data-feather="more-horizontal"></i></span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="code-box-copy">
+                      <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head21" title="Copy"><i class="icofont icofont-copy-alt"></i></button>
+                      <pre><code class="language-html" id="example-head21">&lt;!-- Cod Box Copy begin --&gt;
+</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 xl-100 box-col-12">
+                <div class="card gradient-primary o-hidden">
+                  <div class="card-body">
+                    <div class="setting-dot">
+                      <div class="setting-bg-primary date-picker-setting position-set pull-right"><i class="fa fa-spin fa-cog"></i></div>
+                    </div>
+                    <div class="default-datepicker">
+                      <div class="datepicker-here" data-language="en"></div>
+                    </div><span class="default-dots-stay overview-dots full-width-dots"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small">   </span></span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Container-fluid Ends-->
+          <div class="welcome-popup modal fade" id="loadModal" tabindex="-1" role="dialog"  style="display:none" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <div class="modal-body">
+                  <div class="modal-header"></div>
+                  <div class="contain p-30">
+                    <div class="text-center">
+                      <h3>Hello User,</h3>
+                      <p>Welcome to your Exam Portal System</p>
+                      <button class="btn btn-primary btn-lg txt-white" type="button" data-dismiss="modal" aria-label="Close">Get Started</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- footer start-->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6 footer-copyright">
+                <p class="mb-0">MES ADMIN PORTAL.</p>
+              </div>
+              <div class="col-md-6">
+                <p class="pull-right mb-0">Hand-crafted & made with<i class="fa fa-heart"></i></p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- latest jquery-->
+    <script src="{{url_for('static', filename='assets/js/jquery-3.5.1.min.js')}}"></script>
+    <!-- Bootstrap js-->
+    <script src="{{url_for('static', filename='assets/js/bootstrap/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/bootstrap/bootstrap.js')}}"></script>
+    <!-- feather icon js-->
+    <script src="{{url_for('static', filename='assets/js/icons/feather-icon/feather.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/icons/feather-icon/feather-icon.js')}}"></script>
+    <!-- Sidebar jquery-->
+    <script src="{{url_for('static', filename='assets/js/sidebar-menu.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/config.js')}}"></script>
+    <!-- Plugins JS start-->
+    <script src="{{url_for('static', filename='assets/js/typeahead/handlebars.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/typeahead/typeahead.bundle.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/typeahead/typeahead.custom.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/typeahead-search/handlebars.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/typeahead-search/typeahead-custom.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/chart/chartist/chartist.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/chart/chartist/chartist-plugin-tooltip.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/chart/apex-chart/apex-chart.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/chart/apex-chart/stock-prices.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/prism/prism.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/clipboard/clipboard.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/counter/jquery.waypoints.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/counter/jquery.counterup.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/counter/counter-custom.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/custom-card/custom-card.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/notify/bootstrap-notify.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/dashboard/default.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/notify/index.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/datepicker/date-picker/datepicker.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/datepicker/date-picker/datepicker.en.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/datepicker/date-picker/datepicker.custom.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/chat-menu.js')}}"></script>
+    <!-- Plugins JS Ends-->
+    <!-- Theme js-->
+    <script src="{{url_for('static', filename='assets/js/script.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/theme-customizer/customizer.js')}}"></script>
+    <!-- login js-->
+    <!-- Plugin used-->
+    {% endblock content %}

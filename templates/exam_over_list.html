@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+<div class="page-body">
+            <div class="container-fluid">
+              <div class="page-header">
+                <div class="row">
+                  <div class="col-lg-6 main-header">
+                    <h2>Exam<span>Details</span></h2>
+                    <h6 class="mb-0">admin panel</h6>
+                  </div>
+                  <div class="col-lg-6 breadcrumb-right">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.html"><i class="pe-7s-home"></i></a></li>
+                      <li class="breadcrumb-item">Forms   </li>
+                      <li class="breadcrumb-item">Form Controls</li>
+                      <li class="breadcrumb-item active">Add</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+        <th>Sr No.</th>
+     <th scope="col">Exam Name</th>
+      <th scope="col">QP code</th>
+      <th scope="col">Exam Class</th>
+      <th scope="col">Exam Date/Time</th>
+      <th scope="col">View</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  {% for row in examlist %}
+    <tr>
+      <th >{{loop.index}}</th>
+      <td>{{ row.1 }}</td>
+      <td>{{ row.10 }}</td>
+        <td>{{ row.3 }}</td>
+        <td>{{ row.5  }} / ({{row.7 }} - {{row.8}})</td>
+      <td><a href="/examresult/{{row.10}}" class="btn btn-danger" >View</a></td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+
+
+
+
+
+</div>
+
+ {% endblock content %}
+

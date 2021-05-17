@@ -1,0 +1,35 @@
+{% extends "layout_student.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+
+    <!-- Google font-->
+  {% endblock title %}
+  {% block content %}
+
+        <!-- Right sidebar Ends-->
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-header">
+              <div class="row">
+                <div class="col-lg-6 main-header">
+                  <h2>MES<span>Dashboard </span></h2>
+                  <h6 class="mb-0">Student's panel</h6>
+                </div>
+                <div class="col-lg-6 breadcrumb-right">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('admindashboard') }}"><i class="pe-7s-home"></i></a></li>
+                    <li class="breadcrumb-item">Dashboard</li>
+                    <li class="breadcrumb-item active">Admin  </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+            <div>
+                <h1>page started</h1>
+            </div>
+{% endblock content %}

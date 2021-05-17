@@ -1,0 +1,72 @@
+{% extends"layout.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+
+        <!-- Right sidebar Ends-->
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-header">
+              <div class="row">
+                <div class="col-lg-6 main-header">
+                  <h2>MES<span>Dashboard </span></h2>
+                  <h6 class="mb-0">Student's panel</h6>
+                </div>
+                <div class="col-lg-6 breadcrumb-right">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('admindashboard') }}"><i class="pe-7s-home"></i></a></li>
+                    <li class="breadcrumb-item">Dashboard</li>
+                    <li class="breadcrumb-item"><a href="/examdonelist">Exam List</a></li>
+                    <li class="breadcrumb-item active">{{name}}'s Paper   </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Container-fluid starts-->
+              <div class="card-header">
+                  <div class="dt-ext table-responsive">
+                      <table class="display exptable datatables" id="export-button">
+                         <thead class="thead-dark">
+                      <tr>
+                    <th>Sr No.</th>
+                    <th>Question Name</th>
+                    <th>Right Answer</th>
+                    <th>Selected Answer</th>
+                    <th>Answer Status</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                            {{data|safe}}
+                      </tbody>
+
+                      </table>
+              </div>
+        </div>
+        </div>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script>
+      $('.exptable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ],
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+            });
+</script>
+             {% endblock content %}

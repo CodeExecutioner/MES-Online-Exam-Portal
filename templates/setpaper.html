@@ -1,0 +1,221 @@
+
+{% extends "layout.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+
+        <!-- Right sidebar Ends
+        -->
+        <div class="page-body">
+            <div class="container-fluid">
+              <div class="page-header">
+                <div class="row">
+                  <div class="col-lg-6 main-header">
+                    <h2>Set<span>Paper</span></h2>
+                    <h6 class="mb-0">admin panel</h6>
+                  </div>
+                  <div class="col-lg-6 breadcrumb-right">     
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.html"><i class="pe-7s-home"></i></a></li>
+                      <li class="breadcrumb-item">Forms   </li>
+                      <li class="breadcrumb-item">Form Controls</li>
+                      <li class="breadcrumb-item active">Add</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <!-- <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card">
+                    <div class="card-header">
+                    
+                    </div> -->
+                    <div class="card-body">
+                      <form class="needs-validation" novalidate=""  method="post">
+
+                        <div class="col-md-12">
+                            <div class="form-group row">
+
+                                       <div class="col-md-4">
+                                  <label >Exam Name</label>
+                            <input class="form-control qpcode" id="examnm" type="text" name="examname" placeholder="Exam Name" required="">
+                                  </div>
+
+                                   <div class="col-md-4">
+                         <label >Semester</label>
+                            <input class="form-control qpcode" id="sem" type="text" name="Semester" placeholder="Semester" required="">
+                                  </div>
+
+                                   <div class="col-md-4">
+                         <label >Class Name</label>
+                             <select class="custom select form-control qpcode" required="" name="class_type">
+                                      <option value="User-Role" disabled selected>Select Class</option>
+                                    {% for cls in clsdata %}
+                                      <option value="{{cls.1}}">{{cls.1}}</option>
+                                     {% endfor %}
+                                </select>
+                                  </div>
+
+
+
+                            </div>
+                             <div class="form-group row">
+
+                                   <div class="col-md-4">
+                                       <label >Subject Name</label>
+                                   <select class="custom select form-control qpcode" required="" name="subjnm">
+                                      <option value="" disabled selected>Subject Name</option>
+                                    {% for srow in subj %}
+                                      <option value="{{srow.1}}">{{srow.1}}</option>
+                                     {% endfor %}
+                                </select>
+                                  </div>
+
+                                 <div class="col-md-4">
+                                   <label class=" col-form-label" >Question Type</label>
+
+                                 <select class="custom select form-control" required="" name="quest_type">
+                                      <option value="User-Role">Question Type</option>
+                                      <option value="mcq">MCQ type</option>
+                                      <option value="Long Ans">Long Answer Type</option>
+                                </select>
+                              </div>
+                                <div class="col-md-4">
+                                      <label class=" col-form-label" >No of Questions..</label>
+                                      <input class="form-control" id="question" name="noofquesth" type="number" placeholder="No of Questions">
+                                </div>
+
+                                   <div class="col-md-4">
+                                    <label >QP Code</label>
+                            <input class="form-control" id="qpcode" type="text" name="cod"  placeholder="Subject Code" required="">
+                                </div>
+                              </div>
+
+
+                            <div class="header" style="border:1px solid black;" id="printform">
+
+                               <table class="table table-borderless">
+                                   <thead><tr>
+
+                                       <th scope="col" id="crscode">Course Code: </th>
+                                       <th scope="col" id="crsnm">Course Name:</th>
+
+                                       <th scope="col" id="semis">Semester:</th>
+                                       <th scope="col">Question-paper code:</th>
+                                   </tr></thead></table>
+                            <div class="parentdiv" id="cloneparent" style="padding-left:8%;padding-right:8%;padding-top:5%;border:1px solid black;">
+
+                            </div>
+                                </div>
+                        </div>
+
+
+<br>
+                        <button class="btn btn-primary" type="submit" onclick="printcontent('printform')">Print</button>
+                          <button class="btn btn-danger" type="submit" name="savemcq" formaction="/savemcq" formmethod="post">Save</button>
+                        <br>
+                           <div class="msg text-danger">{{ msg }}</div>
+                      </form>
+                    </div>
+                  </div>
+
+
+        <script>
+        function printcontent(el)
+        {
+        var restorepage=document.body.innerHTML;
+        var printcontent_var=document.getElementById(el).innerHTML;
+        document.body.innerHTML=printcontent_var;
+        window.print();
+        document.body.innerHTML=restorepage;
+        }
+
+
+            $(document).ready(function ()
+             {
+               $('#subjname').change(function()
+               {
+               var subj = $(this).val();
+               if(subj!="")
+                {
+                       $('#crsnm').html('Course Name:');
+                       $('#crsnm').append(subj);
+                }
+               else
+                {
+                       $('#crsnm').html('Course Name:');
+                }
+
+             });
+
+            $('#sem').change(function()
+               {
+               var subj = $(this).val();
+               if(subj!="")
+                {
+                       $('#semis').html('Semister:');
+                       $('#semis').append(subj);
+                }
+               else
+                {
+                       $('#semis').html('Semister:');
+                }
+
+             });
+
+
+
+            $('#qpcode').change(function()
+               {
+               var subj = $(this).val();
+               if(subj!="")
+                {
+                       $('#crscode').html('Course Code:');
+                       $('#crscode').append(subj);
+                }
+               else
+                {
+                       $('#crscode').html('Course Code:');
+                }
+
+             });
+
+
+
+
+              $('.qpcode').change(function(){
+              var qpcode = $('#qpcode').val();
+              var val = $(this).val();
+              var codegen = qpcode+val+"";
+                  if(val=="" && qpcode==""){
+                    $('#qpcode').val('');
+                  }else {
+                  $('#qpcode').val(codegen);
+                  }
+              });
+
+              $("#question").keyup(function () {
+                $("#cloneparent").empty();
+                var value = $("#question").val();
+                var v = value;
+                var design = $("<div class=\"col-md-12\"><div class=\"form-group row\"><div class=\"col-md-9\"><input class=\"form-control\" type=\"text\" name=\"question_1\" placeholder=\"Enter 1st Question\"></div><div class=\"col-md-3\"><input class=\"form-control\" id=\"marks_1\" type=\"number\" name=\"marks\" placeholder=\"marks\"></div></div><div class=\"form-group row\"><div class=\"col-md-6\"><input class=\"form-control\" type=\"text\" name=\"option1\" placeholder=\"Option 1\"><br></div><div class=\"col-md-6\"><input class=\"form-control\" type=\"text\" name=\"option2\" placeholder=\"Option 2\"></div><div class=\"col-md-6\"><input class=\"form-control\" type=\"text\" name=\"option3\" placeholder=\"Option 3\"><br></div><div class=\"col-md-6\"><input class=\"form-control\" type=\"text\" name=\"option4\" placeholder=\"Option 4\"></div></div><div class=\"form-group row\"> <div class=\"col-md-9\"><select name=\"rightansc\" class=\"form-control\"><option selected=\"\" disabled=\"\">Select Answer</option><option value=\"A\">A</option><option value=\"B\">B</option><option value=\"C\">C</option><option value=\"D\">D</option></select></div></div></div><hr><hr>");
+
+                for (var i = 0; i < v; i++) {
+
+                    $("<div class=\"col-md-12\"><div class=\"form-group row\"><div class=\"col-md-9\"><input class=\"form-control\" type=\"text\" name=\"question_1\" placeholder=\"Enter Question "+i+"\"></div><div class=\"col-md-3\"><input class=\"form-control\" id=\"marks_1\" type=\"number\" name=\"marks\" placeholder=\"marks\"></div></div><div class=\"form-group row\"><div class=\"col-md-6\"><input class=\"form-control\" type=\"text\" name=\"option1\" placeholder=\"Option 1\"><br></div><div class=\"col-md-6\"><input class=\"form-control\" type=\"text\" name=\"option2\" placeholder=\"Option 2\"></div><div class=\"col-md-6\"><input class=\"form-control\" type=\"text\" name=\"option3\" placeholder=\"Option 3\"><br></div><div class=\"col-md-6\"><input class=\"form-control\" type=\"text\" name=\"option4\" placeholder=\"Option 4\"></div></div><div class=\"form-group row\"> <div class=\"col-md-9\"><select name=\"rightansc\" class=\"form-control\"><option selected=\"\" disabled=\"\">Select Answer</option><option value=\"A\">A</option><option value=\"B\">B</option><option value=\"C\">C</option><option value=\"D\">D</option></select></div></div></div><hr style=\"width:100%;border:1px solid black\">").clone().appendTo('#cloneparent');
+                }
+
+        });
+            })
+        </script>
+    {% endblock content %}

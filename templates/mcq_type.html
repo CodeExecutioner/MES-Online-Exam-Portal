@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+
+        <!-- Right sidebar Ends-->
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-header">
+              <div class="row">
+                <div class="col-lg-6 main-header">
+                  <h2>MES<span>Dashboard </span></h2>
+                  <h6 class="mb-0">admin panel</h6>
+                </div>
+                <div class="col-lg-6 breadcrumb-right">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('admindashboard') }}"><i class="pe-7s-home"></i></a></li>
+                    <li class="breadcrumb-item">Dashboard</li>
+                    <li class="breadcrumb-item active">Admin  </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Container-fluid starts-->
+        <div class="col-xl-7">
+                    <div class="card">
+                      <div class="card-header col-md-12">
+                        <div class="form-group row">
+                          <table class="table table-borderless">
+                              <thead>
+                                <tr>
+
+                                  <th scope="col"> Date:23/4/2021</th>
+                                  <div class="form-group row">
+                                      <h5 style="padding:20px;">Course Name:DBMS</h5>
+                                        <h5>Semester:3rd</h5>
+                                  </div>
+                                    <th scope="col">Program:IT</th>
+
+
+                                </tr>
+
+                              </thead>
+                          </table>
+
+                             <div class="col-md-9">
+                                 <input class="form-control" type="text" name="question_1" placeholder="Enter 1st Question">
+                            </div>
+
+                             <div class="col-md-3">
+                              <input class="form-control" id="marks_1" type="number" name="marks" placeholder="marks">
+                            </div>
+                        </div>
+                          <div class="form-group row">
+                              <div class="col-md-6">
+                             <input class="form-control" type="text" name="option1" placeholder="Option 1">
+                                  <br>
+                              </div>
+                                <div class="col-md-6">
+                                              <input class="form-control" type="text" name="option2" placeholder="Option 2">
+
+                              </div>
+                                <div class="col-md-6">
+                                            <input class="form-control" type="text" name="option3" placeholder="Option 3">
+                              <hr style=\"width:50%;border:1px solid black\">
+
+                              </div>
+                                <div class="col-md-6">
+                                 <input class="form-control" type="text" name="option4" placeholder="Option 4">
+                                    <div class="md-form">
+            <mdb-date-picker formControlName="toDate" id="toDate" [inline]="true" [label]="'Orders.GridColumns.ToDate' | translate">
+
+            </mdb-date-picker>
+        </div>
+
+                              </div>
+
+                          </div>
+
+                           <div class="form-group row">
+                                <div class="col-md-9">
+                                    <select name="rightans" class="form-control">
+                                        <option selected disabled>Select Answer</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                          </div>
+                      </div>
+                    </div>
+        </div>
+
+
+ {% endblock content %}
+
+
+<!--date display-->
+$(document).ready(function () {
+                var formattedDate = new Date();
+                var d = formattedDate.getDate();
+                var m =  formattedDate.getMonth();
+                m += 1;  // JavaScript months are 0-11
+                var y = formattedDate.getFullYear();
+
+                $("#txtDate").append(d + "/" + m + "/" + y);
+
+
+
+ $(document).ready(function ()
+             {
+              $('#subjcode').change(function()
+              {
+                var subjc = $(this).val();
+                if(subjc!="")
+                {
+                       $('#crscode').html('Course Code:');
+                       $('#crscode').append(subjc);
+                }
+               else
+                {
+                       $('#crscode').html('Course Code:');
+                }
+                });

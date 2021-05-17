@@ -1,0 +1,55 @@
+{% extends "layout_student.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+<div class="page-body">
+            <div class="container-fluid">
+              <div class="page-header">
+                <div class="row">
+                  <div class="col-lg-6 main-header">
+                    <h2>Exam<span>Results</span></h2>
+                    <h6 class="mb-0">admin panel</h6>
+                  </div>
+                  <div class="col-lg-6 breadcrumb-right">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.html"><i class="pe-7s-home"></i></a></li>
+                      <li class="breadcrumb-item">Home   </li>
+                      <li class="breadcrumb-item active">Given Exams</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="column-selector"></label>
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+        <th>Sr No.</th>
+        <th>Exam Name</th>
+        <th scope="col">Subject Name</th>
+        <th scope="col">Attempted questions </th>
+        <th scope="col">Results </th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {{data |safe}}
+
+</tbody>
+    </table>
+
+</div>
+
+
+ {% endblock content %}
+
+
+

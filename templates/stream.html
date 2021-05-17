@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+<div class="page-body">
+            <div class="container-fluid">
+              <div class="page-header">
+                <div class="row">
+                  <div class="col-lg-6 main-header">
+                    <h2>Subject<span>Details</span></h2>
+                    <h6 class="mb-0">admin panel</h6>
+                  </div>
+                  <div class="col-lg-6 breadcrumb-right">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.html"><i class="pe-7s-home"></i></a></li>
+                      <li class="breadcrumb-item">Teacher   </li>
+                      <li class="breadcrumb-item active">Add Stream</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+<div class="card-body">
+                      <form class="needs-validation" action="/stream" method="post">
+                        <div class="form-row">
+                          <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Add Stream</label>
+                            <input class="form-control" id="validationCustom01" type="text" name="DeptName" placeholder="Enter Stream i.e., IT" required=""> <br>
+                            <div class="valid-feedback">Looks good!</div>
+                              <button class="btn btn-primary" type="submit">Submit</button>
+                        <br>
+                          </div>
+                        </div>
+                      </form>
+    <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="column-selector"></label>
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Sr.No</th>
+      <th scope="col">Department</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for row in streamList %}
+        <tr>
+      <td >{{loop.index}}</td>
+
+      <td>{{row.1}}</td>
+             </tr>
+        {% endfor %}
+
+
+
+  </tbody>
+</table>
+
+
+
+
+   {% endblock content %}

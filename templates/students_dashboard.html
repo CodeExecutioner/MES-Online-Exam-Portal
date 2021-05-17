@@ -1,0 +1,266 @@
+{% extends "layout_student.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+<style>
+  .cursor{
+  cursor:pointer;
+  }
+</style>
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+        <!-- Right sidebar Ends-->
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-header">
+              <div class="row">
+                <div class="col-lg-6 main-header">
+                  <h2>MES<span>Dashboard </span></h2>
+                  <h6 class="mb-0">students's panel</h6>
+                </div>
+                <div class="col-lg-6 breadcrumb-right">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="pe-7s-home"></i></a></li>
+<!--                    <li class="breadcrumb-item">Dashboard</li>-->
+<!--                    <li class="breadcrumb-item active">Admin  </li>-->
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Container-fluid starts-->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12 xl-100">
+                <div class="row">
+                  <div class="col-xl-3 xl-50 col-md-6 cursor box-col-6" onclick="window.location.href='/exam'">
+                    <div class="card gradient-primary o-hidden">
+                      <div class="card-body tag-card">
+                        <div class="default-chart">
+                          <div class="apex-widgets">
+                            <div id="area-widget-chart"></div>
+                          </div>
+                          <div class="widgets-bottom" >
+                            <h5 class="f-w-700 mb-0">Exams </h5>
+                          </div>
+                        </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small"></span></span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 xl-50 col-md-6 cursor box-col-6" onclick="window.location.href='/exam_scgedule_list'">
+                    <div class="card gradient-secondary o-hidden">
+                      <div class="card-body tag-card">
+                        <div class="default-chart">
+                          <div class="apex-widgets">
+                            <div id="area-widget-chart-2"></div>
+                          </div>
+                          <div class="widgets-bottom" >
+                            <h5 class="f-w-700 mb-0">Exam Schedule List <span class="pull-right">70 / 100   </span></h5>
+                          </div>
+                        </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small"></span></span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 xl-50 col-md-6 cursor box-col-6">
+                    <div class="card gradient-warning o-hidden">
+                      <div class="card-body tag-card">
+                        <div class="default-chart">
+                          <div class="apex-widgets">
+                            <div id="area-widget-chart-3"></div>
+                          </div>
+                          <div class="widgets-bottom">
+                            <h5 class="f-w-700 mb-0">Weak subjects</h5>
+                          </div>
+                        </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small">     </span></span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 xl-50 col-md-6 cursor box-col-6">
+                    <div class="card gradient-info o-hidden">
+                      <div class="card-body tag-card">
+                        <div class="default-chart">
+                          <div class="apex-widgets">
+                            <div id="area-widget-chart-4"></div>
+                          </div>
+                          <div class="widgets-bottom">
+                            <h5 class="f-w-700 mb-0">Mock results</h5>
+                          </div>
+                        </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small">     </span></span></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-4 xl-100 box-col-12">
+                <div class="card">
+                  <div class="card-header no-border">
+                    <h5>Quotes "Every day is new day."</h5>
+                    <ul class="creative-dots">
+                      <li class="bg-primary big-dot"></li>
+                      <li class="bg-secondary semi-big-dot"></li>
+                      <li class="bg-warning medium-dot"></li>
+                      <li class="bg-info semi-medium-dot"></li>
+                      <li class="bg-secondary semi-small-dot"></li>
+                      <li class="bg-primary small-dot"></li>
+                    </ul>
+                    <div class="card-header-right">
+                      <ul class="list-unstyled card-option">
+                        <li><i class="icofont icofont-gear fa fa-spin font-primary"></i></li>
+                        <li><i class="view-html fa fa-code font-primary"></i></li>
+                        <li><i class="icofont icofont-maximize full-card font-primary"></i></li>
+                        <li><i class="icofont icofont-minus minimize-card font-primary"></i></li>
+                        <li><i class="icofont icofont-refresh reload-card font-primary"></i></li>
+                        <li><i class="icofont icofont-error close-card font-primary"></i></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card-body p-0">
+                    <div class="radial-default">
+                      <div id="circlechart"></div>
+                    </div>
+                    <div class="code-box-copy">
+                      <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head1" title="Copy"><i class="icofont icofont-copy-alt"></i></button>
+                      <pre><code class="language-html" id="example-head1"></code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 xl-50 box-col-12">
+                <div class="card gradient-secondary o-hidden monthly-overview">
+                  <div class="card-header no-border bg-transparent">
+                    <h5>Mock Test Lists</h5>
+                    <h6 class="mb-0">January</h6><span class="pull-right right-badge"><span class="badge badge-pill">70 / 100</span></span>
+                  </div>
+                  <div class="card-body p-0">
+                    <div class="text-bg"><span>0.7</span></div>
+                    <div class="area-range-apex">
+                      <div id="area-range"></div>
+                    </div><span class="overview-dots full-lg-dots"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small"></span></span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-4 xl-100 box-col-6">
+                <div class="card gradient-primary o-hidden monthly-overview yearly">
+                  <div class="card-header no-border bg-transparent">
+                    <h5>Suprise Exams</h5>
+                    <h6 class="mb-0">Monday</h6><span class="pull-right right-badge"><span class="badge badge-pill">50 / 100</span></span>
+                  </div>
+                  <div class="card-body p-0">
+                    <div class="text-bg"><span>0.5</span></div>
+                    <div class="area-range-apex">
+                      <div id="area-range-1"></div>
+                    </div><span class="overview-dots full-width-dots"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small"> </span></span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 xl-100 box-col-12">
+                <div class="card weather-bg">
+
+                </div>
+              </div>
+              <div class="col-xl-6 xl-100 box-col-12"`>
+                <div class="card">
+                  <div class="card-header no-border">
+                    <h5>Two Important Tasks</h5>
+                    <ul class="creative-dots">
+                      <li class="bg-primary big-dot"></li>
+                      <li class="bg-secondary semi-big-dot"></li>
+                      <li class="bg-warning medium-dot"></li>
+                      <li class="bg-info semi-medium-dot"></li>
+                      <li class="bg-secondary semi-small-dot"></li>
+                      <li class="bg-primary small-dot"></li>
+                    </ul>
+                    <div class="card-header-right">
+                      <ul class="list-unstyled card-option">
+                        <li><i class="icofont icofont-gear fa fa-spin font-primary"></i></li>
+                        <li><i class="view-html fa fa-code font-primary"></i></li>
+                        <li><i class="icofont icofont-maximize full-card font-primary"></i></li>
+                        <li><i class="icofont icofont-minus minimize-card font-primary"></i></li>
+                        <li><i class="icofont icofont-refresh reload-card font-primary"></i></li>
+                        <li><i class="icofont icofont-error close-card font-primary"></i></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="activity-table table-responsive">
+                      <table class="table table-bordernone">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="activity-image"><img class="img-fluid" src="{{url_for('static', filename='assets/images/dashboard/clipboard.png')}}" alt=""></div>
+                            </td>
+                            <td>
+                              <div class="activity-details">
+                                <h4 class="default-text">15 <span class="f-14">November</span></h4>
+                                <h6>New Task Added</h6>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="activity-time"><span class="font-primary f-w-700">1 Day Ago</span><span class="d-block light-text">Your Work Deadline 18<sup>th</sup></span></div>
+                            </td>
+                            <td>
+                              <button class="btn btn-shadow-primary">View</button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="activity-image activity-secondary"><img class="img-fluid" src="{{url_for('static', filename='assets/images/dashboard/greeting.png')}}" alt=""></div>
+                            </td>
+                            <td>
+                              <div class="activity-details">
+                                <h4 class="default-text">01 <span class="f-14">January</span></h4>
+                                <h6>New Task Added</h6>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="activity-time"><span class="font-secondary f-w-700">10 Minute Ago</span><span class="d-block light-text">Update Your Work Today</span></div>
+                            </td>
+                            <td>
+                              <button class="btn btn-shadow-secondary">View</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="code-box-copy">
+                      <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head3" title="Copy"><i class="icofont icofont-copy-alt"></i></button
+                      <pre><code class="language-html" id="example-head3">  </code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-4 xl-100 box-col-12">
+                <div class="card gradient-primary o-hidden">
+
+              </div>
+            </div>
+          </div>
+         <!-- Container-fluid Ends-->
+
+          </div>
+        <!-- footer start-->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6 footer-copyright">
+                <p class="mb-0">MES ADMIN PORTAL.</p>
+              </div>
+              <div class="col-md-6">
+                <p class="pull-right mb-0">Hand-crafted & made with<i class="fa fa-heart"></i></p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+
+
+
+   {% endblock content %}
+

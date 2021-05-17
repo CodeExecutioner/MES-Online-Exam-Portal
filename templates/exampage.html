@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+<style>
+  .cursor{
+  cursor:pointer;
+  }
+</style>
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+
+        <!-- Right sidebar Ends-->
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-header">
+              <div class="row">
+                <div class="col-lg-6 main-header">
+                  <h2>MES<span>Dashboard </span></h2>
+                  <h6 class="mb-0">admin panel</h6>
+                </div>
+                <div class="col-lg-6 breadcrumb-right">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('admindashboard') }}"><i class="pe-7s-home"></i></a></li>
+                    <li class="breadcrumb-item">Dashboard</li>
+                    <li class="breadcrumb-item active">Admin  </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Container-fluid starts-->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12 xl-100">
+                <div class="row">
+                  <div class="col-xl-3 xl-50 cursor col-md-6 box-col-6" onclick="window.location.href='/savemcq'">
+                    <div class="card gradient-primary o-hidden">
+                      <div class="card-body tag-card">
+                        <div class="default-chart">
+
+                          <div class="apex-widgets">
+                            <div id="area-widget-chart"></div>
+                          </div>
+                          <div class="widgets-bottom" >
+                            <h5 class="f-w-700 mb-0">Set paper<span class="pull-right">msg  </span></h5>
+                          </div>
+                        </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small"></span></span></span>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                    <div class="col-xl-3 xl-50 cursor col-md-6 box-col-6" onclick="window.location.href='/examlist'">
+                    <div class="card gradient-info o-hidden">
+                      <div class="card-body tag-card">
+                        <div class="default-chart">
+                          <div class="apex-widgets">
+                            <div id="area-widget-chart-4"></div>
+                          </div>
+                          <div class="widgets-bottom">
+                            <h5 class="f-w-700 mb-0">Total Exams</h5>
+                          </div>
+                          </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small">     </span></span></span>
+                      </div>
+                    </div>
+                  </div>
+
+                   <div class="col-xl-3 xl-50 cursor col-md-6 box-col-6"  onclick="window.location.href='/examlist'">
+                    <div class="card gradient-secondary o-hidden">
+                      <div class="card-body tag-card">
+                        <div class="default-chart">
+                          <div class="apex-widgets">
+                            <div id="area-widget-chart-5"></div>
+                          </div>
+                          <div class="widgets-bottom">
+                            <h5 class="f-w-700 mb-0" onclick="window.location.href='/schedule_exm'">Schedule Exams<span class="pull-right">70 / 100   </span></h5>
+                          </div>
+                        </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small">     </span></span></span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                </div>
+              </div>
+
+
+
+
+              </div>
+
+
+ {% endblock content %}
+
+
+

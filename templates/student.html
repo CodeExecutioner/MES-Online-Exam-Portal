@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+    {% block title %}
+
+    <title>Online Exam Portal</title>
+
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+
+        <!-- Right sidebar Ends
+        -->
+        <div class="page-body">
+            <div class="container-fluid">
+              <div class="page-header">
+                <div class="row">
+                  <div class="col-lg-6 main-header">
+                    <h2>Student<span>Details</span></h2>
+                    <h6 class="mb-0">admin panel</h6>
+                  </div>
+                  <div class="col-lg-6 breadcrumb-right">     
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.html"><i class="pe-7s-home"></i></a></li>
+                      <li class="breadcrumb-item">Dashboard   </li>
+                      <li class="breadcrumb-item active">Add Student</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <!-- <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card">
+                    <div class="card-header">
+                    
+                    </div> -->
+                    <div class="card-body">
+                      <form class="needs-validation" action="/studentdetails" method="post">
+                        <div class="form-row">
+                          <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">FuLL name</label>
+                            <input class="form-control" id="validationCustom01" type="text" name="stud_name" placeholder="Full name" required="">
+                            <div class="valid-feedback">Looks good!</div>
+                          </div>
+                         
+                          <div class="col-md-4 mb-3">
+                            <label for="validationCustomUsername">Username</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend"><span class="input-group-text" id="inputGroupPrepend">@</span></div>
+                              <input class="form-control" id="validationCustomUsername" type="text" name="username" placeholder="Username" aria-describedby="inputGroupPrepend" required="">
+                              <div class="invalid-feedback">Please choose a username.</div>
+                            </div>
+
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="validationCustom02">Password</label>
+                            <input class="form-control" id="validationCustom02" type="password" name="password" placeholder="Password" required="">
+                            <div class="valid-feedback">Looks good!</div>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="col-md-6 mb-3">
+                            <label for="validationCustom03">Address</label>
+                            <input class="form-control" id="validationCustom013" name="address" placeholder="Address" required=""
+                                   type="text">
+                            <div class="invalid-feedback">Please provide a valid city.</div>
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label for="validationCustom04">Class</label>
+                          <select class="form-control" name="class" required>
+                            <option disabled selected>Select Class</option>
+                            {% for cls in clsdata %}
+                            <option value="{{cls.1}}">{{cls.1}}</option>
+                            {% endfor %}
+                          </select>
+                            <div class="invalid-feedback">Please provide a valid state.</div>
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label for="validationCustom05">Contact</label>
+                            <input class="form-control" id="validationCustom05" type="text" name="contact" placeholder="Contact" required="">
+                            <div class="invalid-feedback">Please provide a valid zip.</div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label >Email</label>
+                            <input class="form-control" id="validationCustom03" type="email" name="email" placeholder="Email" required="">
+                            <div class="invalid-feedback">Please provide a valid Email.</div>
+                          </div>
+                            <div class="col-md-6 mb-3">
+                            <label >Parent Name</label>
+                            <input class="form-control" id="validationCustom0" type="text" name="parentname" placeholder="Parent Name" required="">
+                            <div class="invalid-feedback">Please provide a valid Email.</div>
+                          </div>
+                            <div class="col-md-6 mb-3">
+                            <label >Parent Contact</label>
+                            <input class="form-control" id="validationCustom09" type="text" name="parentcontact" placeholder="Parent Contact" required="">
+                            <div class="invalid-feedback">Please provide a valid Email.</div>
+                          </div>
+                           <div class="col-md-3 mb-3">
+                            <label for="validationCustom05">Department</label>
+                             <select class="form-control" name="deptname">
+                               <option disabled selected>Select Department</option>
+                               {% for srow in stram %}
+                               <option value="{{srow.1}}">{{srow.1}}</option>
+                               {% endfor %}
+                             </select>
+                            <div class="invalid-feedback">Please provide a valid zip.</div>
+                          </div>
+                          <!-- <div class="form-group"> -->
+                            <div class="custom-file">
+                            <input class="custom-file-input" id="validatedCustomFile" type="file" name="profile_img">
+                            <label class="custom-file-label" for="validatedCustomFile">Choose profile image file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                          </div>
+                        <br>
+
+<!--                          <div class="custom-file">-->
+<!--                            <input class="custom-file-input" id="validatedCustomFile" type="file" required="">-->
+<!--                            <label class="custom-file-label" for="validatedCustomFile">Choose profile image file...</label>-->
+<!--                            <div class="invalid-feedback">Example invalid custom file feedback</div>-->
+<!--                          </div>-->
+<!--                        <br>-->
+<!--                        <br>-->
+                          <br><br>
+                        <button class="btn btn-primary" type="submit">Submit form</button>
+                        <br>
+                        <button> <div class="msg">{{ msg }}</div></button>
+                          <br>
+                      </form>
+                    </div>
+                  </div>
+
+
+    {% endblock content %}

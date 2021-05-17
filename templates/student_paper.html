@@ -1,0 +1,204 @@
+{% extends "layout_student.html" %}
+    {% block title %}
+    <title>Online Exam Portal</title>
+<style>
+    #timer {
+    font-size: 16px;
+    font-weight: 100;
+    color: #2c2c2c;
+    text-shadow: 0 0 20px #48C8FF;
+    font-style:bold
+}
+
+#timer div {
+    display: inline-block;
+    min-width: 90px;
+}
+
+#timer div span {
+    color: #2c2c2c;
+    display: block;
+}
+</style>
+    <!-- Google font-->
+  {% endblock title %}
+
+
+
+   {% block content %}
+
+        <!-- Right sidebar Ends
+        -->
+        <div class="page-body">
+            <div class="container-fluid">
+              <div class="page-header">
+                <div class="row">
+                  <div class="col-lg-6 main-header">
+                    <h2>Student<span>Details</span></h2>
+                    <h6 class="mb-0">admin panel</h6>
+                  </div>
+                  <div class="col-lg-6 breadcrumb-right">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.html"><i class="pe-7s-home"></i></a></li>
+                      <li class="breadcrumb-item">Forms   </li>
+                      <li class="breadcrumb-item">Form Controls</li>
+                      <li class="breadcrumb-item active">Add</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+                <div class="col-sm-12">
+                    <form class="mega-inline" method="post">
+                        <div class="card">
+                                <div class="card-header">
+                            <h5>Exam Details</h5>
+                                    <span>
+                                    <h5 >Subject Name: &nbsp; xyz</h5>
+                                </span>
+                                    <div class="text-right">
+                                        <div id="timer">
+                                        </div>
+                                    </div>
+                          </div>
+
+                     {% for row in alldata %}
+                     <table>
+                         <tbody>
+                         <tr>
+                         <td>
+                             <div class="card-header">
+                               <h5>Question {{loop.index}}</h5>
+                                 <span><h5>{{row.0}}</h5></span></div>
+                                    {% if loop.index==1 %}
+                                     <input type="hidden" name="QpCode" value="{{row.7}}">
+                             <input type="hidden" name="Examname" value="{{row.12}}">
+                             <input type="hidden" name="class" value="{{row.13}}">
+                                    {% endif %}
+
+                        </td>
+                         <td>
+                                                <div class="bg-danger text-white" style="float: right;"><h6>2M</h6></div>
+
+                         </td>
+                             </tbody>
+                         </tr>
+            </table>
+
+                  <div class="card-body megaoptions-border-space-sm">
+
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="media p-20">
+
+                              <div class="radio radio-primary mr-3">
+                                  <input type="hidden" name="Question" value="{{row.6}}"/>
+                                <input  type="radio" name="radio_{{row.6}}" value="A">
+
+                              </div>
+                              <div CLASS="medi"></div>
+                              <div class="media-body">
+
+
+                                <h6 class="mt-0 mega-title-badge">{{row.1}}<span class="badge badge-primary pull-right digits"> </span></h6>
+                                <p>OPTION 1   </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="media p-20">
+                              <div class="radio radio-secondary mr-3">
+                                <input type="radio" name="radio_{{row.6}}" value="B">
+
+                              </div>
+                              <div class="media-body">
+                                <h6 class="mt-0 mega-title-badge">{{row.2}}<span class="badge badge-secondary pull-right digits"></span></h6>
+                                <p>OPTION 2</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="media p-20">
+                              <div class="radio radio-secondary mr-3">
+                                <input  type="radio" name="radio_{{row.6}}" value="C">
+
+                              </div>
+                              <div class="media-body">
+                                <h6 class="mt-0 mega-title-badge">{{row.3}}<span class="badge badge-secondary pull-right digits"></span></h6>
+                                <p>OPTION 3</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="media p-20">
+                              <div class="radio radio-primary mr-3">
+                                <input  type="radio" name="radio_{{row.6}}" value="D">
+
+                              </div>
+                              <div class="media-body">
+                                <h6 class="mt-0 mega-title-badge">{{row.4}}<span class="badge badge-primary pull-right digits"></span></h6>
+                                <p>OPTION 4</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                  </div>
+
+
+
+                       {% endfor %}
+                    <div class="card-footer text-right">
+                        <button class="btn btn-primary m-r-15" type="submit" id="formbtn" formaction="/papersubmit" formmethod="post">Submit</button></div>
+
+                    </div> </form>
+                  </div>
+
+
+                </div>
+              </div>
+        </div>
+
+<script>
+
+    function updateTimer() {
+    future = Date.parse("{{context }} {{time1}}");
+    now = new Date();
+    diff = future - now;
+
+    days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    hours = Math.floor(diff / (1000 * 60 * 60));
+    mins = Math.floor(diff / (1000 * 60));
+    secs = Math.floor(diff / 1000);
+
+    d = days;
+    h = hours - days * 24;
+    m = mins - hours * 60;
+    s = secs - mins * 60;
+    if(h==0 && m==0 && s==1){
+       $('#formbtn').trigger('click');
+    }
+    if(h==0 && m==0 && s==0){
+       $('#formbtn').trigger('onchange');
+    }
+    document.getElementById("timer")
+        .innerHTML =
+
+        '<div>' + h + '<span>hours</span></div>' +
+        '<div>' + m + '<span>minutes</span></div>' +
+        '<div>' + s + '<span>seconds</span></div>';
+}
+setInterval('updateTimer()', 1000);
+</script>
+   {% endblock content %}
